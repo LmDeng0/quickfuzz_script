@@ -140,7 +140,7 @@ class Converter:
 
 
 if __name__ == "__main__":
-    cvr = Converter("bbs_func.txt", "libaudioprocessing.f.s")
+    cvr = Converter("bbs_func.txt", "libaudioprocessing_asan.s")
     cvr.gen_format_result()
     cvr.section_rebuild()
-    cvr.dump_result("format_result.txt")
+    cvr.dump_result("libaudioprocessing_asan_bss.s")
