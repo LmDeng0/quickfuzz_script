@@ -18,7 +18,7 @@ def processFunctionsAndBlocks():
     returns:
     """
     functions = set()
-    jump_table_path = "JumpTable_test"
+    jump_table_path = "JumpTable"
     #module = blocks_pb2.module()
     insts = set()
     # dummy function
