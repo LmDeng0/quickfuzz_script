@@ -15,7 +15,7 @@ class TbnzHanler:
     def __init__(self, err_file, source_file):
         self.err_file = err_file
         self.source_file = source_file
-        self.save_path = source_file + ".out"
+        self.save_path = "libaudioprocessing_asan_bss_got_tbnz.s"
         self.tbnz_matcher = "(tbnz.*)$"
         self.bne = "bne"
         self.tst = "tst"
