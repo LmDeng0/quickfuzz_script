@@ -34,7 +34,14 @@ for line in lines:
         if '.quad' in line:
             func_name = line.split('.quad ')[1]
             got_func_list.append(func_name.strip())
-
+            
+if len(got_func_list) == 0:
+    print("not got should be change")
+    fw = open(file_m_path, 'w')
+    fw.writelines(lines)
+    fw.close()
+    sys.exit(0)
+    
 for got_func in got_func_list:
     for i in range(len(lines)):
         line = lines[i]
