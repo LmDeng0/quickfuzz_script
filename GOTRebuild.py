@@ -1,10 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
 import json
 import os
 import sys
 
-file_path = "libaudioprocessing_asan_bss.s"
-file_m_path = "libaudioprocessing_asan_bss_got.s"
-jump_table_path = "JumpTable"
+file_path = "libaudioprocessing.s.asan.ng.bss"
+file_m_path = file_path + ".got"
+jump_table_path = "jump_table.txt"
 
 fr = open(file_path, 'r')
 lines = fr.readlines()
@@ -230,7 +232,10 @@ for i in range(len(jump_table_entries)):
                 lines[ln + 1] = '\t.hword %s' % (lines[ln + 1].split('byte ')[1])
         
         found = False
-        ln = br_ins_map[jump_table_br_addr]
+        if jump_table_br_addr in br_ins_map:
+            ln = br_ins_map[jump_table_br_addr]
+        else:
+            continue
         for i in range(20):
             if lines[ln - i].startswith('\tldrb '):
                 lines[ln - i] = '\tldrh %s' % (lines[ln - i].split('ldrb ')[1])
