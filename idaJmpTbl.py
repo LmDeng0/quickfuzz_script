@@ -30,8 +30,8 @@ def processFunctionsAndBlocks():
     element_size_list = []
     instr_addr_list = []
     successor_addr_list = []
-    test_disam = Dword(long 0x3A3EC)
-    print(test_disam)
+    #test_disam = Dword(long 0x3A3EC)
+    #print(test_disam)
     for head in idautils.Heads():
         if idc.is_code(idc.get_full_flags(head)):
             switch_info = ida_nalt.get_switch_info(head)  ### indirect jump地址
